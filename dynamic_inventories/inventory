@@ -1,0 +1,9 @@
+[dce_master]
+147.228.173.95
+
+[dce_nodes]
+147.228.173.93
+147.228.173.96
+
+[all:vars]
+ansible_user=nodeadm

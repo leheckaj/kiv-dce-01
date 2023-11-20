@@ -1,0 +1,5 @@
+- name: Install Python with PIP
+  apt:
+    pkg:
+      - python3
+      - python3-pip

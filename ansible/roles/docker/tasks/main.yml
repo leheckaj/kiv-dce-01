@@ -1,0 +1,55 @@
+#
+# Install Docker
+#
+- name: Setup repo over HTTPS
+  apt:
+    pkg:
+      - ca-certificates
+      - curl
+      - gnupg
+
+- name: Create keyring directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: 0755
+
+- name: Install Docker's official GPG key - step 1
+  shell: >
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /etc/apt/keyrings/docker.gpg
+
+- name: Install Docker's official GPG key - step 2
+  shell: >
+    echo
+    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu
+    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
+    tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+- name: Update the package index
+  apt:
+    update_cache: yes
+
+- name: Install Docker Engine
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+
+- name: Add admin user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: Install Python Docker & Docker Compose modules
+  pip:
+    name:
+      - docker
+      - docker-compose
+
+#
+# EOF
+#

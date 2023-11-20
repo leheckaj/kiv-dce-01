@@ -1,0 +1,12 @@
+[dce_master]
+%{ for ip in master ~}
+${ip}
+%{ endfor ~}
+
+[dce_nodes]
+%{ for ip in nodes ~}
+${ip}
+%{ endfor ~}
+
+[all:vars]
+ansible_user=${vm_admin_user}

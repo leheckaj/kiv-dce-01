@@ -1,0 +1,20 @@
+
+server {
+        listen 80 default_server;
+
+        root /tmp/frontend/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+	
+	location /service-api {
+    		proxy_pass http://backend-lb/; # references the upstream load-balancing group
+	}
+
+}

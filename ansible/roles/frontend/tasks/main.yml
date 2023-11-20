@@ -1,0 +1,29 @@
+- name: Copy content of directory 'frontend'
+  copy:
+    src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/    # note the '/' <-- !!!
+    dest: /tmp/frontend/
+
+- name: Install nginx
+  apt:
+    name:
+      - nginx
+      - nginx-core
+      - nginx-full
+    state: latest
+
+- name: Copy Nginx Config - default
+  copy:
+    src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/nginx/default
+    dest: /etc/nginx/sites-available/default
+  notify: Restart Nginx # viz handlers/main.yml 
+
+- name: Copy Nginx Config - config/backend-proxy.conf
+  copy:
+    src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/config/backend-proxy.conf
+    dest: /etc/nginx/default.d/backend-proxy.conf
+  notify: Restart Nginx  # viz handlers/main.yml 
+
+
+- name: Check Nginx config
+  become: true
+  shell: nginx -t 
