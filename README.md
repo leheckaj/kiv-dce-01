@@ -15,4 +15,6 @@ ssh nodeadm@147.228.173.95
 http://147.228.173.95/service-api/find/echo
 
 ssh nodeadm@1.2.3.4
+
+Při startu Nginx je nutné, aby všechny nodes běžely, jinak to nenaběhne. Pak již můžeme jakékoliv nodes mazat a nahrazovat.
 ```
