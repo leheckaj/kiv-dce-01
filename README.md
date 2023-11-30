@@ -21,6 +21,13 @@ Při startu Nginx je nutné, aby všechny nodes běžely, jinak nenaběhne. Pak 
 
 Ansible nemá ode mě žádné parametry pro kofiguraci uživatelem zvenčí. Očekává se jen, že existuje inventory a uživatel nodeadm s přávy SUDO, který bude mít přístup odkudkoliv s klíčem vygenerovaným v KIV/DCE.
 
+
+## Deployment diagram
+
+![Demo 3 deployment diagram](demo-3-deployment.png)
+
+*Figure 1: Deployment diagram of Demo 3*
+
 ## Příkazy pro rozchození projektu
 Předpokládá se, že uživatel vyvíjí v docker image z KIV/DCE se všemi vygenerovanými klíči a s veškerým nainstalovaným toolingem.
 ```
