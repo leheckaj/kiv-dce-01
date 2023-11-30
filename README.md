@@ -17,9 +17,9 @@ V rámci našeho projektu se soubory pro Ansible nachází ve složce Ansible. P
 
 Při instalaci backendu a frontendu se u obou na začátku nakopírují soubory z localhostu na cílový server. Následě je na frontendu nainstalován Nginx a nakopírovány konfigurační soubory pro nginx do příslušných složek. Po nastavení je zkontrolována validita konfigurace a Nginx je pomocí Handleru v Ansible restartován. Na backendech je nainstalován docker. Po překopírování souborů je zbuilděn Docker IMAGE a ten je spuštěn.
 
-Při startu Nginx je nutné, aby všechny nodes běžely, jinak to nenaběhne. Pak již můžeme jakékoliv nodes mazat a nahrazovat.
+Při startu Nginx je nutné, aby všechny nodes běžely, jinak nenaběhne. Pak již můžeme jakékoliv nodes mazat a nahrazovat.
 
-Ansible nemá ode mě žádné parametry pro kofiguraci zvenčí. Očekává se jen, že existuje uživatel nodeadm s přávy SUDO a bude mít přístup odkudkoliv s klíčem vygenerovaným v KIV/DCE.
+Ansible nemá ode mě žádné parametry pro kofiguraci uživatelem zvenčí. Očekává se jen, že existuje inventory a uživatel nodeadm s přávy SUDO, který bude mít přístup odkudkoliv s klíčem vygenerovaným v KIV/DCE.
 
 ## Příkazy pro rozchození projektu
 Předpokládá se, že uživatel vyvíjí v docker image z KIV/DCE se všemi vygenerovanými klíči a s veškerým nainstalovaným toolingem.
