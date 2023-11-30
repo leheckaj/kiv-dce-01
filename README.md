@@ -43,6 +43,9 @@ docker rmi backend:v1
 ```
 
 Aplikaci si můžete vyzkoušet na těchto adresách:
+
 http://147.228.173.95/service-api/find/echo
+
 http://147.228.173.95/
+
 http://147.228.173.93:5000/find/echo
