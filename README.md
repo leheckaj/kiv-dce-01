@@ -1,6 +1,6 @@
 # Semestrální práce z KIV/DCE
 
-Na základě projektu z [KIV/DS exercise 3](https://github.com/maxotta/kiv-ds-vagrant/tree/master/demo-3) jsem vytvořil script v Ansible a Terraformu na deployment aplikace na infrastrukturu.
+Na základě projektu z [KIV/DS exercise 3](https://github.com/maxotta/kiv-ds-vagrant/tree/master/demo-3) jsem vytvořil script v Ansible a Terraformu na deployment aplikace na infrastrukturu OpenNebula na ZČU (nuada.zcu.cz).
 Pro deploment aplikace je využíváno technologie Terraform (viz soubory terraform.tf), která vychází ze cvičení s Kubernetes. Terraform vygeneruje příslušné soubory pro Ansible a seznam nodů pro Frontend. Na vytvořených nodech jsou následně deployovány soubory pro backend nebo frontend dle typu nodu.
 Cílem je vytvořit infrastrukturu s jedním frontendem a několika parametrem upravitelnými počty nodů.
 
