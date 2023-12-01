@@ -1,14 +1,14 @@
 # Semestrální práce z předmětu KIV/DCE
 ---
+  - name: Setup nodes
+    hosts: dce_nodes
+    become: true
+    roles:
+      - backend
+
   - name: Setup Load balancer
     hosts: dce_master
     become: true
     roles:
       - frontend
-  
-#  - name: Setup nodes
-#    hosts: dce_nodes
-#    become: true
-#    roles:
-#      - backend
 
