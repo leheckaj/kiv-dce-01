@@ -2,8 +2,8 @@
 # Basic node initialization
 #
 # Disable IPv6 in order to avoid MicroK8S controller binding only to ':::' IP v6 address
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="ipv6\.disable=1"/g' /etc/default/grub
-update-grub
+#sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="ipv6\.disable=1"/g' /etc/default/grub
+#update-grub
 
 # Setup hostname
 HOST_IP_ADDR=`ip -f inet address show dev eth0 | grep inet | tr '/' ' ' | awk '{ print $2 }'`
