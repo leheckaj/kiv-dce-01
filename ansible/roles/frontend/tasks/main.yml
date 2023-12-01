@@ -3,13 +3,9 @@
     src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/    # note the '/' <-- !!!
     dest: /tmp/frontend/
 
-- name: Install nginx
-  apt:
-    name:
-      - nginx
-      - nginx-core
-      - nginx-full
-    state: latest
+- name: install nginx
+  apt: name=nginx state=present
+    
 
 - name: Copy Nginx Config - default
   copy:
@@ -17,10 +13,15 @@
     dest: /etc/nginx/sites-available/default
   notify: Restart Nginx # viz handlers/main.yml 
 
-- name: Copy Nginx Config - config/backend-proxy.conf
+- name: Create a folder
+  ansible.builtin.file:
+    path: /etc/nginx/default.d
+    state: directory
+
+- name: Copy Nginx Config - config/backend-upstream.conf
   copy:
-    src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/config/backend-proxy.conf
-    dest: /etc/nginx/default.d/backend-proxy.conf
+    src: /workspace/kiv-dce-semestral-work/semestral/demo-3/frontend/config/backend-upstream.conf
+    dest: /etc/nginx/conf.d/backend-upstream.conf
   notify: Restart Nginx  # viz handlers/main.yml 
 
 
